@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Bloxnauts — Project landing page" />
+  <title>Bloxnauts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+
+  <!-- Basic SEO / Social -->
+  <meta property="og:title" content="Bloxnauts" />
+  <meta property="og:description" content="Bloxnauts — Project landing page" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Styles (replace with your stylesheet) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Theme color for mobile -->
+  <meta name="theme-color" content="#0b74de" />
+</head>
+
+<body>
+<div class="content">
+<div class="bg">
+<img src="img/meteorites2.png" alt="Meteorites" rel="preload" class="meteorites2" data-parallax data-speed="0.25"/>
+<img src="img/meteorites3.png" alt="Meteorites"  class="meteorites3" data-parallax data-speed="0.25"/>
+<img src="img/meteorites1.png" alt="Meteorites" class="meteorites1"data-parallax data-speed="0.25" />
+  <img src="img/meteorites4.png" alt="Meteorites" class="meteorites4" data-parallax data-speed="0.25"/>
+  </div>
+<section class="hero">
+<img class="planet" src="img/planet.png" rel="preload"  alt="Planet" />  
+<img class="astronaut" src="img/astronauts.png" alt="Astronaut"  data-parallax data-speed="0.5"/>
+<img class="background" src="img/background.png" alt="Background" />
+</section>
+
+<section class="info">
+  <h1>ROBLOX AND FORTNITE GAMES DEVELOPMENT</h1>
+  <p>We're specialists of design and development of branded and original IP games for USG platforms like <span style="color: yellow;">Roblox</span> and <span style="color: yellow;">FCHQ</span> </p>
+  <p>Want your brand have presence and gain traction among youngest audiences? We're here to help.</p>
+</section>
+
+<section class="offer">
+<div class="offer-item">
+<h2>DESIGN</h2>
+<p>We’re experienced in tailoring the types of experiences that speak to young audiences.</p>
+<p>Players in the Roblox generation engage with entertainment content very differently from typical gamers, and we know how.</p>
+</div>
+<div class="offer-item">
+<h2>CREATION</h2>
+<p>We’ve optimized the pipelines to deliver with speed and efficiency that modern audiences require.</p>
+<p> It is not enough to deliver good entertainment, it is just as important to tap into trends and time the execution perfectly.</p>
+</div>
+<div class="offer-item">
+<h2>LIVE OPS</h2>
+<p>
+USG games are about unbroken contact with your audience, keeping them interesting and re-engaging the players constantly.</p>
+<p>Updates, special events and timed offers will improve game’s exposition and monetization.</p>
+</div>
+
+</section>
+
+<section class="our_games">
+<h1>OUR GAMES AND CLIENTS</h1>
+<div class="gallery">
+<div class="arrow">❮</div>
+<div class="game-cards">
+<div class="game-card"></div>
+<div class="game-card"></div>
+<div class="game-card"></div>
+</div>
+<div class="arrow">❯</div>
+</div>
+
+</section>
+
+<section class="engage">
+  <h1>ENTER OUR UNIVERSE</h1>
+  <p>Click to get more information about our services and get in touch with us!</p>
+  <div class="engage_action">
+    <img src="img/engage.png" alt="Engage" />
+    <a href="#" class="engage_button">ENGAGE!</a>
+    <div class="copyrights">
+  <p>© Copyright 2025 by Bloxnauts</p>
+  <p>Privacy Policy</p>
+  </div>
+  </div>
+  
+
+
+</section>
+
+
+</div>
+
+
+<script>
+// --- Efekt paralaksy ---
+// Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
+(function() {
+const layers = document.querySelectorAll('[data-parallax]');
+  if (!layers.length) return;
+
+  // Wyłącz efekt na ekranach dotykowych (opcjonalnie)
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouch) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateParallax() {
+    layers.forEach(layer => {
+      const speed = parseFloat(layer.dataset.speed) || 0.3;
+      const rect = layer.getBoundingClientRect();
+      const offset = rect.top * speed * -1;
+      layer.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+    ticking = false;
+  }
+
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateParallax(); // pierwsze ustawienie
+})();
+</script>
+</body>
+
+</html>
