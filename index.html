@@ -41,7 +41,9 @@
 <section class="hero">
 <img class="planet" src="img/planet.png" rel="preload"  alt="Planet" />  
 <img class="astronaut" src="img/astronauts.png" alt="Astronaut"  data-parallax data-speed="0.5"/>
-<img class="background" src="img/background.png" alt="Background" />
+<div class="background">
+<img  src="img/background.png" alt="Background" />
+</div>
 </section>
 
 <section class="info">
@@ -105,6 +107,9 @@ USG games are about unbroken contact with your audience, keeping them interestin
 
 
 <script>
+  window.addEventListener("scroll", () => {
+  if (window.scrollX !== 0) window.scrollTo(0, window.scrollY);
+});
 // --- Efekt paralaksy ---
 // Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
 (function() {
