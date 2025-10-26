@@ -33,10 +33,19 @@
 <body>
 <div class="content">
 <div class="bg">
-<img src="img/meteorites2.png" alt="Meteorites" rel="preload" class="meteorites2" data-parallax data-speed="0.25"/>
-<img src="img/meteorites3.png" alt="Meteorites"  class="meteorites3" data-parallax data-speed="0.25"/>
-<img src="img/meteorites1.png" alt="Meteorites" class="meteorites1"data-parallax data-speed="0.25" />
-  <img src="img/meteorites4.png" alt="Meteorites" class="meteorites4" data-parallax data-speed="0.25"/>
+  <div class="meteorites" id="m3" data-parallax data-speed="0.25">
+<img src="img/meteorites3.png" alt="Meteorites"  class="meteorites3" />
+</div>
+<div class="meteorites" id="m2" data-parallax data-speed="0.25">
+<img src="img/meteorites2.png" alt="Meteorites" rel="preload" class="meteorites2" />
+</div>
+
+<div class="meteorites" id="m1" data-parallax data-speed="0.25">
+<img src="img/meteorites1.png" alt="Meteorites" class="meteorites1" />
+</div>
+<div class="meteorites" id="m4" data-parallax data-speed="0.25">
+  <img src="img/meteorites4.png" alt="Meteorites" class="meteorites4" />
+</div>
   </div>
 <section class="hero">
 <img class="planet" src="img/planet.png" rel="preload"  alt="Planet" />  
@@ -90,7 +99,9 @@ USG games are about unbroken contact with your audience, keeping them interestin
   <h1>ENTER OUR UNIVERSE</h1>
   <p>Click to get more information about our services and get in touch with us!</p>
   <div class="engage_action">
+       <div class="engage_planet">
     <img src="img/engage.png" alt="Engage" />
+</div>
     <a href="#" class="engage_button">ENGAGE!</a>
     <div class="copyrights">
   <p>© Copyright 2025 by Bloxnauts</p>
@@ -104,12 +115,7 @@ USG games are about unbroken contact with your audience, keeping them interestin
 
 
 </div>
-
-
 <script>
-  window.addEventListener("scroll", () => {
-  if (window.scrollX !== 0) window.scrollTo(0, window.scrollY);
-});
 // --- Efekt paralaksy ---
 // Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
 (function() {
@@ -143,6 +149,8 @@ const layers = document.querySelectorAll('[data-parallax]');
   updateParallax(); // pierwsze ustawienie
 })();
 </script>
+
+
 </body>
 
 </html>
