@@ -119,19 +119,23 @@ USG games are about unbroken contact with your audience, keeping them interestin
 // --- Efekt paralaksy ---
 // Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
 (function() {
-const layers = document.querySelectorAll('[data-parallax]');
+  const layers = document.querySelectorAll('[data-parallax]');
   if (!layers.length) return;
 
-
-
-  let lastScrollY = window.scrollY;
+  let lastScrollY = window.scrollY; // Przechowuje aktualną pozycję scrolla
   let ticking = false;
 
   function updateParallax() {
+    // ⚠️ KLUCZOWA ZMIANA: Używamy globalnej pozycji zamiast kosztownego rect.top
+    const scrollPosition = lastScrollY; 
+
     layers.forEach(layer => {
       const speed = parseFloat(layer.dataset.speed) || 0.3;
-      const rect = layer.getBoundingClientRect();
-      const offset = rect.top * speed * -1;
+      
+      // Obliczenie przesunięcia na podstawie pozycji scrolla
+      const offset = scrollPosition * speed * -1; 
+      
+      // Użycie akceleracji sprzętowej GPU
       layer.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
     ticking = false;
@@ -146,7 +150,7 @@ const layers = document.querySelectorAll('[data-parallax]');
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  updateParallax(); // pierwsze ustawienie
+  updateParallax();
 })();
 </script>
 
