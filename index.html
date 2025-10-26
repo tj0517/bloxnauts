@@ -121,7 +121,8 @@ USG games are about unbroken contact with your audience, keeping them interestin
 (function() {
   const layers = document.querySelectorAll('[data-parallax]');
   if (!layers.length) return;
-
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouch) return;
   let lastScrollY = window.scrollY; // Przechowuje aktualną pozycję scrolla
   let ticking = false;
 
