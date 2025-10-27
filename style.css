@@ -1,12 +1,16 @@
-
+html
+{
+    overflow-x: hidden;
+    overflow-y: visible
+}
 
 
 body
 {
     position: relative;
  background-color: #140A22;   
- width: 100vw;   
- overflow-x: clip; 
+ width: 100%;   
+ overflow: clip; 
  display: flex;
     justify-content: center;
 flex-direction: column;
@@ -23,10 +27,9 @@ flex-direction: column;
 
 .content
 {
-    width: 100vw;
+    width: 100%;
     height: auto;
     position: relative; 
-    overflow-x: clip;
 }
 
 .bg
@@ -284,16 +287,16 @@ width: 90%;
 
 /* Strzałki */
 .arrow {
-    height: fit-content;
     position: relative;
   background: #CBB8EF;
   border: none;
   color: #140A22;
   font-size: 2em;
   font-weight: bold;
-  padding: 0 1.25%;
+  padding: 0 1%;
   cursor: pointer;
   user-select: none;
+  padding-bottom: 0.55%;
 }
 
 .arrow.left { margin-right: 2.5%; }
@@ -311,6 +314,7 @@ width: 90%;
     position: relative;
     text-align: center;
 z-index: 1;
+margin-bottom: 0;
 }
 
 .engage_action
@@ -320,16 +324,12 @@ position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
-overflow-x: clip;
 }
 .engage_planet
 {
  width: 100%;   
-position: absolute;
-top: 0;
-left: 50%;
-transform: translate(-50%,-32.5%);
-overflow-x: clip;
+overflow: clip;
+margin-top: -21%;
 }
 
 .engage_planet img
@@ -340,13 +340,15 @@ overflow-x: clip;
 }
 .engage_action a
 {
+position: absolute;
 text-align: center;
+left: 50%;
+transform: translateX(-55%);
+top: 32.5%;
     font-family: 'Tektur', sans-serif;
     font-weight: 900;
     font-size: 3.5vw;
     color: black;
-    margin-top: 14%;
-    padding-right: 2.5vw;
     text-align: center;
     z-index: 10;
     text-decoration: none;
@@ -359,7 +361,7 @@ text-align: center;
     flex-direction: row;
     justify-content: space-between;
     position: absolute;
-    bottom: -25vw;
+    top: 90%;
     left:5%;
     font-size: 1.25vw;
 }
@@ -385,6 +387,10 @@ body {
   {
   font-size: 42px;  
   }
+   .offer-item h2
+  {
+  font-size: 42px;  
+  }
   .meteorites
   {
     overflow-x:visible;
@@ -395,7 +401,9 @@ body {
   }
   .arrow
   {
-    height: 50.4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
     font-size: 40px;
 }
 .offer-item
@@ -404,7 +412,7 @@ body {
 padding-bottom: 55px;}
 .copyrights{
     font-size: 24px;
-    bottom: -350px;
+    top: 90%;
 }
 .our_games
 {
@@ -413,23 +421,14 @@ padding-bottom: 55px;}
 .engage{
     margin-top: 125px;
 }
-.background
-{
-    overflow-x: visible;
-}
 .bg
 {
-    overflow-x:visible;
+    overflow: visible;
 }
-.engage_planet
-{
-    overflow-x: visible;
-}
-
 .engage_action a
 {
-    margin-top: 205px;
-    padding-right: 30px;
+    top: 245px;
+    padding-right: 10px;
     font-size: 50px;
 }
 }
@@ -449,7 +448,7 @@ padding-bottom: 55px;}
         font-size: 6.5vw;
         margin-top: 0;
       }
-        h2 {    
+          .offer-item h2{    
         font-size: 22px;
         }
         .background
@@ -500,6 +499,8 @@ padding-bottom: 55px;}
 }
         .arrow {
             font-size: 4vw;
+            padding: 0 1.5%;
+            padding-bottom: 0.5%;
         }
 
         .engage p{
@@ -510,8 +511,8 @@ padding-bottom: 55px;}
         .engage_planet
         {
             width: 100%;
-            transform: translate(-47.5%,-45%);
-padding-bottom: 10vw;
+            margin-top: -52.5vw;
+padding-bottom: 25%;
         }
         .engage_planet img
         {
@@ -521,22 +522,27 @@ padding-bottom: 10vw;
         .engage_action a
         {
          font-size: 5vw;   
+         top: 26%;
         }
      
         .copyrights {
             font-size: 2vw;
-            bottom:-35vw;
+            top:90%;
         }
 
         .card { width: calc((100% - 25px)/2); }
     }
      
 @media (max-width: 650px) {
+    .carousel
+    {
+    width: 80%;
+    }
+    .arrow
+    {       font-size: 5vw;
+            padding: 0 2%;
+            padding-bottom: 0.75%;
+        }
     .card { width: 100%; }
 
-
-    .engage_planet img
-    {
-        scale: 2;
-    }
 }   

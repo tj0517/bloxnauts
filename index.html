@@ -33,6 +33,7 @@
 <body>
 <div class="content">
 <div class="bg">
+<div class="bg-mask">
   <div class="meteorites" id="m3" data-parallax data-speed="0.25">
 <img src="img/meteorites3.png" alt="Meteorites"  class="meteorites3" />
 </div>
@@ -45,6 +46,7 @@
 </div>
 <div class="meteorites" id="m4" data-parallax data-speed="0.25">
   <img src="img/meteorites4.png" alt="Meteorites" class="meteorites4" />
+</div>
 </div>
   </div>
 <section class="hero">
@@ -112,7 +114,45 @@ USG games are about unbroken contact with your audience, keeping them interestin
 
 </div>
 <script src="carousell.js"></script>
+<script>
+// --- Efekt paralaksy ---
+// Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
+(function() {
+  const layers = document.querySelectorAll('[data-parallax]');
+  if (!layers.length) return;
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouch) return;
+  let lastScrollY = window.scrollY; // Przechowuje aktualną pozycję scrolla
+  let ticking = false;
 
+  function updateParallax() {
+    // ⚠️ KLUCZOWA ZMIANA: Używamy globalnej pozycji zamiast kosztownego rect.top
+    const scrollPosition = lastScrollY; 
+
+    layers.forEach(layer => {
+      const speed = parseFloat(layer.dataset.speed) || 0.3;
+      
+      // Obliczenie przesunięcia na podstawie pozycji scrolla
+      const offset = scrollPosition * speed * -1; 
+      
+      // Użycie akceleracji sprzętowej GPU
+      layer.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+    ticking = false;
+  }
+
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateParallax();
+})();
+</script>
 
 
 </body>
