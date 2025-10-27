@@ -5,7 +5,7 @@ body
 {
     position: relative;
  background-color: #140A22;   
- width: 100%;   
+ width: 100vw;   
  overflow-x: clip; 
  display: flex;
     justify-content: center;
@@ -18,13 +18,15 @@ flex-direction: column;
     font-weight: 400;
     color: #ffffff;
     font-size:1.55vw;
+     scroll-behavior: smooth;
 }
 
 .content
 {
-    width: 100%;
+    width: 100vw;
     height: auto;
     position: relative; 
+    overflow-x: clip;
 }
 
 .bg
@@ -91,6 +93,7 @@ section
     flex-direction: column  ;
     align-items: center;
     z-index: 10;
+    margin:7.5% auto ;
 }
 
 .hero
@@ -99,6 +102,7 @@ section
     width: 100%;
     height: auto; 
     z-index: -1;
+    margin-top: 0;
 }
 .planet
 {
@@ -131,7 +135,7 @@ width: 100%;
     width: 80%;
     height: auto;
     position: relative;
-    margin-top: 100px;
+    margin-top: 7%;
     margin-left: 5%;
     z-index: 2;
 }
@@ -165,8 +169,8 @@ h2
     height: auto;
     text-align: center;
     z-index: 10;
-    margin: 50px auto;   
     z-index: 10;
+    margin-top: 0;
 }
 
 .info p
@@ -186,21 +190,21 @@ p
     height: auto;
     text-align: center;
     z-index: 9;
-    margin: auto;
     display: flex;
+    gap: 50px;
     flex-direction:row;
     justify-content: space-between;
     align-items: stretch;
-    margin-top:150px;
 }
 .offer-item
 {
-    width: 30.5%;
-    padding:3.5vw 2.5%;
+    width: calc((100% - 100px)/3);;
+    padding:4% 2.5%;
     position: relative;
+    margin-top: 2.5%;
     height: full;
     background-color: #5E74C8;
-    padding-bottom: 2vw;
+    padding-bottom: 4.5%;
     box-sizing: border-box;
     z-index: 10;
 }
@@ -215,8 +219,8 @@ p
     left: 50%;
     transform: translate(-50%,-50%);
     top: 0;
-    font-size: 36px;    
-    padding: 5px 0;
+    font-size: 3vw;   
+    padding: 2% 0;
     margin: 0;
     z-index: 15;
 }
@@ -232,63 +236,71 @@ p
 
 .our_games
 {
-    width: 100%;
-    margin: auto;
-    margin-top: 7.5vw;
-    position: relative;
-    z-index: 10 ;
-}
-
-.gallery
-{
     width: 95%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 25px;
-}
-
-.arrow {
-    width: 3.5%;
-    height: 3.5vw;
-    color: #140A22;
-    background-color: #CBB8EF;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;      /* poziome centrowanie */
-    align-items: center;          /* pionowe centrowanie ✅ */
-    text-align: center;
-    font-size: 3vw;
-    font-weight: 900;
-    z-index: 10;
-}
-
-
-.game-cards
-{
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
     position: relative;
     z-index: 10 ;
-
 }
 
-.game-card
-{
-    width: 31%;
-    height: 150px;
-    background-color: #5E74C8;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
+
+/* Kontener carousel */
+.carousel-container {
+  position: relative;
+ width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel {
+width: 90%;
+  display: flex;
+  overflow: hidden; /* ukrywa częściowo widoczne karty */
+  gap: 50px;
+  padding: 10px 0;
+}
+
+/* Karty */
+.card {
+  flex: 0 0 auto;
+  aspect-ratio:16/9 ;
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: calc((100% - 100px)/3);;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: full;
+  object-fit: cover;
+}
+
+
+/* Strzałki */
+.arrow {
+    height: fit-content;
     position: relative;
-    z-index: 10;
+  background: #CBB8EF;
+  border: none;
+  color: #140A22;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0 1.25%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arrow.left { margin-right: 2.5%; }
+.arrow.right { margin-left: 2.5%; }
+
+.arrow:hover {
+  color: white
 }
 
 
@@ -296,8 +308,6 @@ p
 .engage
 {
     width: 100%;
-    margin: auto;
-    margin-top: 5.5vw;
     position: relative;
     text-align: center;
 z-index: 1;
@@ -310,6 +320,7 @@ position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
+overflow-x: clip;
 }
 .engage_planet
 {
@@ -318,7 +329,7 @@ position: absolute;
 top: 0;
 left: 50%;
 transform: translate(-50%,-32.5%);
-overflow: clip;
+overflow-x: clip;
 }
 
 .engage_planet img
@@ -332,9 +343,9 @@ overflow: clip;
 text-align: center;
     font-family: 'Tektur', sans-serif;
     font-weight: 900;
-    font-size: 3vw;
+    font-size: 3.5vw;
     color: black;
-    margin-top: 14vw;
+    margin-top: 14%;
     padding-right: 2.5vw;
     text-align: center;
     z-index: 10;
@@ -365,21 +376,18 @@ text-align: center;
 
 
 
+
 @media (min-width: 1440px) {
 body {
-    font-size: 24px;
+    font-size: 22px;
   }
   h1
   {
-  font-size: 40px;  
+  font-size: 42px;  
   }
   .meteorites
   {
     overflow-x:visible;
-  }
-  .meteorites img
-  {
-    width: 30%;
   }
     .content {
     width: 1440px;
@@ -392,8 +400,8 @@ body {
 }
 .offer-item
 {
-    padding:65px 2.5%;
-padding-bottom: 50px;}
+    padding:50px 3%;
+padding-bottom: 55px;}
 .copyrights{
     font-size: 24px;
     bottom: -350px;
@@ -422,24 +430,16 @@ padding-bottom: 50px;}
 {
     margin-top: 205px;
     padding-right: 30px;
-    font-size: 40px;
+    font-size: 50px;
 }
 }
-@media (max-width: 1200px) {
-.offer
-{
-    margin-top: 125px;
-}
-.offer-item
-{
-    padding: 3.5vw 2.5%;
-    padding-top:4.75vw ;
-
-}
-}
-@media (max-width: 1023px) {
+@media (max-width: 950px) {
     body {
         font-size: 3vw;
+      }
+      section
+      {
+        margin-top: 15%;
       }
       p {
         line-height: 1.9; 
@@ -447,13 +447,26 @@ padding-bottom: 50px;}
       }
       h1 {
         font-size: 6.5vw;
+        margin-top: 0;
       }
         h2 {    
         font-size: 22px;
         }
+        .background
+        {
+            width: 100%;
+        }
+.background img
+{
+   scale: 1.3; 
+}
     .astronaut
     {
-        margin-top: 15vw;
+        margin-top: 10%;
+    }
+    .info
+    {
+        width: 85%;
     }
 
         .offer {
@@ -461,15 +474,18 @@ padding-bottom: 50px;}
             flex-direction: column;
             align-items: center;
             font-size: 2.75vw;
-            margin-top: 17.5vw;
             margin-bottom: 0px;
         }
         .offer-item {
             width: 100%;
-            margin-bottom: 12vw;    
-            padding: 6.5vw 10%;
-            padding-top: 7.5vw;
+            padding: 10% 10%;
+            padding-bottom: 7.5%;
+            margin-bottom: 5%;   
         } 
+        .offer-item:last-child
+        {
+            margin-bottom: 0;
+        }
         .offer-item p{
             padding: 0;
         }
@@ -478,25 +494,14 @@ padding-bottom: 50px;}
     width: 40%;
     font-size: 5vw;
 }
-        .our_games{
-            margin-top: 0;
-        }
-        .game-cards {
-            flex-wrap: nowrap;
-            overflow-x: hidden;
-        }
-        .game-card {
-            width: 50vw;
-
-        }
+.carousel
+{
+    gap: 25px;
+}
         .arrow {
-            width: 6vw;
-            height: 6vw;
-            font-size: 6vw;
+            font-size: 4vw;
         }
-        .engage {
-            margin-top: 100px;
-        }
+
         .engage p{
             margin-bottom: 75px;
             width: 80%;
@@ -504,7 +509,8 @@ padding-bottom: 50px;}
         }
         .engage_planet
         {
-top:-20vw;
+            width: 100%;
+            transform: translate(-47.5%,-45%);
 padding-bottom: 10vw;
         }
         .engage_planet img
@@ -522,66 +528,15 @@ padding-bottom: 10vw;
             bottom:-35vw;
         }
 
-
-        .our_games h1
-{
-    margin-top: 0;
-}
-.info h1
-{
-    margin-top: 0;
-}
-
-
+        .card { width: calc((100% - 25px)/2); }
     }
-@media (max-width: 500px) {
-body {
-    font-size: 3vw; 
-}
-
-.info
-{
-    margin-bottom: 0;
-    margin-top: 0;
-}
+     
+@media (max-width: 650px) {
+    .card { width: 100%; }
 
 
-.offer{
-    font-size: 3.25vw;
-    margin-top: 50px;
-    margin-bottom: 0;
-}
-
- .offer-item {
-            margin-bottom: 50px;    
-            padding-right:5%;
-            padding-left: 5%;
-        } 
-
-.our_games
-{
-    margin-top: 0;
-}
-
-.offer-item h2
-{
-    width: 40%;
-    font-size: 5vw;
-}
-
-.copyrights p
-{
-    font-size: 2.5vw;
-}
-
-.engage
-{
-    margin-top: 50px;
-}
-
-.astronaut
-{
-    margin-top: 20vw
-}
-
-}
+    .engage_planet img
+    {
+        scale: 2;
+    }
+}   

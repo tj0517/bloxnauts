@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Cyberpunk 2077",
+    "image": "https://picsum.photos/400/250?random=10",
+    "desc": "Futurystyczna gra RPG w otwartym świecie Night City."
+  },
+  {
+    "title": "The Witcher 3",
+    "image": "https://picsum.photos/400/250?random=11",
+    "desc": "Epicka przygoda Wiedźmina Geralta z Rivii."
+  },
+  {
+    "title": "Elden Ring",
+    "image": "https://picsum.photos/400/250?random=12",
+    "desc": "Trudna i piękna gra akcji w otwartym świecie."
+  },
+  {
+    "title": "Minecraft",
+    "image": "https://picsum.photos/400/250?random=13",
+    "desc": "Nieograniczony świat kreatywnej zabawy."
+  }
+]
