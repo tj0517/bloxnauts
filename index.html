@@ -113,44 +113,55 @@ USG games are about unbroken contact with your audience, keeping them interestin
 
 
 </div>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.45/dist/lenis.min.js"></script>
 <script src="carousell.js"></script>
 <script>
-// --- Efekt paralaksy ---
-// Każdy element z klasą .parallax__layer powinien mieć atrybut data-speed (np. 0.2, 0.5)
+// --- Efekt paralaksy z Lenis (Wymaga Lenis.js) ---
 (function() {
   const layers = document.querySelectorAll('[data-parallax]');
   if (!layers.length) return;
-const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  if (isTouch) return;
-  let lastScrollY = window.scrollY; // Przechowuje aktualną pozycję scrolla
-  let ticking = false;
 
-  function updateParallax() {
-    // ⚠️ KLUCZOWA ZMIANA: Używamy globalnej pozycji zamiast kosztownego rect.top
-    const scrollPosition = lastScrollY; 
+  // 1. Inicjalizacja Lenis
+  // Możesz dostosować opcje (duration, easing, etc.)
+  const lenis = new Lenis({
+    duration: 1.2,          // Czas trwania animacji przewijania (im dłuższy, tym bardziej "gumowe")
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Funkcja łagodząca
+    smoothTouch: false,     // Wyłączamy płynne przewijanie na dotyku (opcjonalnie)
+    wheelMultiplier: 1.0,   // Mnożnik prędkości kółka myszy
+  });
 
+  // 2. Funkcja do płynnego przewijania (Game Loop)
+  function raf(time) {
+    lenis.raf(time); // Aktualizuje Lenis
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf); // Rozpoczęcie pętli
+
+  // 3. Funkcja do aktualizacji Paralaksy
+  function updateParallax(scrollPosition) {
     layers.forEach(layer => {
       const speed = parseFloat(layer.dataset.speed) || 0.3;
       
       // Obliczenie przesunięcia na podstawie pozycji scrolla
+      // Lenis przekazuje aktualną pozycję przewinięcia (scrollPosition)
       const offset = scrollPosition * speed * -1; 
       
       // Użycie akceleracji sprzętowej GPU
       layer.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
-    ticking = false;
   }
 
-  function onScroll() {
-    lastScrollY = window.scrollY;
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
+  // 4. Nasłuchiwanie Zdarzeń Lenis
+  // Lenis wywołuje swoją własną funkcję 'scroll' i przekazuje pozycję
+  // Do Twojego kodu paralaksy.
+  lenis.on('scroll', ({ scroll }) => {
+    // Wywołaj funkcję paralaksy, przekazując aktualną pozycję scrolla
+    updateParallax(scroll); 
+  });
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  updateParallax();
+  // Początkowe ustawienie
+  updateParallax(window.scrollY);
+
 })();
 </script>
 
