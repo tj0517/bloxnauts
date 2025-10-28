@@ -120,7 +120,7 @@ top: 7.5%;
 left: 7.5%;
     font-family: 'AmazingViews', sans-serif; 
     font-size: 4vw;
-    font-weight: 700;
+    font-weight: 500;
     z-index: 15;
 }
 .planet
@@ -174,7 +174,7 @@ h1
 h2
 {
   font-family: 'AmazingViews', sans-serif;
-    font-weight: 900;
+    font-weight: 500;
     color: #ffffff;
     padding: 0;
     text-align: center;
@@ -227,7 +227,6 @@ p
 }
 .offer-item h2
 {
-    font-weight: 900;
     background-color: #CBB8EF;
     color:black;
     width: 80%;
@@ -363,7 +362,7 @@ left: 50%;
 transform: translateX(-55%);
 top: 32.5%;
     font-family: 'AmazingViews', sans-serif;
-    font-weight: 900;
+    font-weight: 500;
     font-size: 3.5vw;
     color: black;
     text-align: center;
