@@ -115,6 +115,7 @@ USG games are about unbroken contact with your audience, keeping them interestin
 (function() {
   const layers = document.querySelectorAll('[data-parallax]');
   if (!layers.length) return;
+  if (window.innerWidth <= 768) return;
 
   // 1. Inicjalizacja Lenis
   // Możesz dostosować opcje (duration, easing, etc.)
