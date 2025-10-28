@@ -26,9 +26,9 @@ function renderCarousel() {
     const item = cards[idx];
     const el = document.createElement('div');
     el.className = 'card';
-    el.innerHTML = `
-      <img src="${item.image}" alt="${item.title}">
-    `;
+    //el.innerHTML = `
+     // <img src="${item.image}" alt="${item.title}">
+   // `;
     container.appendChild(el);
   }
 }
