@@ -112,12 +112,13 @@ section
     height: auto; 
     z-index: 9;
     margin-top: 0;
+    margin-bottom: 0;
 }
 .logo
 {
 position: absolute;
 top: 7.5%;
-left: 7.5%;
+left: 10%;
     font-family: 'AmazingViews', sans-serif; 
     font-size: 4vw;
     font-weight: 500;
@@ -397,11 +398,11 @@ top: 32.5%;
 
 @media (min-width: 1440px) {
 body {
-    font-size: 22px;
+    font-size: 18px;
   }
   h1
   {
-  font-size: 42px;  
+  font-size: 38px;  
   }
   .logo
   {
@@ -409,14 +410,14 @@ body {
   }
    .offer-item h2
   {
-  font-size: 42px;  
+  font-size: 38px;  
   }
   .meteorites
   {
     overflow-x:visible;
   }
     .content {
-    width: 1440px;
+    width: 1200px;
     margin: auto;
   }
   .arrow
@@ -424,14 +425,15 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    font-size: 40px;
+    padding-bottom: 0.35%;
+    font-size: 38px;
 }
 .offer-item
 {
     padding:50px 3%;
-padding-bottom: 55px;}
+padding-bottom: 35px;}
 .copyrights{
-    font-size: 24px;
+    font-size: 18px;
     top: 90%;
 }
 .our_games
@@ -452,9 +454,9 @@ padding-bottom: 55px;}
 }
 .engage_action a
 {
-    top: 245px;
+    top: 205px;
     padding-right: 10px;
-    font-size: 50px;
+    font-size: 42px;
 }
 }
 @media (max-width: 950px) {
@@ -468,6 +470,10 @@ padding-bottom: 55px;}
       section
       {
         margin-top: 15%;
+      }
+      .hero
+      {
+        margin-bottom: 5%;
       }
       p {
         line-height: 1.9; 
