@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slick: Responsive & Flexible Slider Carousel Plugin Examples</title>
+  <meta charset="UTF-8">
+</head>
+<style>
+body {
+  font-family: system-ui;
+  background: var(--color-just-black);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.button-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.gallery
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center ;
+}
+
+.wrapper {
+  height: fit-content;
+  max-height: 50vh;
+  width: 82.5%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+    padding: 0 25px;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  flex-shrink: 0;
+  aspect-ratio: 16/9;
+  margin: 0 25px;
+  width: calc((100% - 50px)/3);;
+flex: 0 0 auto;
+  aspect-ratio:16/9 ;
+  background: #5E74C8;
+  overflow: hidden;
+}
+
+.box img
+{
+width: 100%;
+height: 100%;
+}
+
+.arrow {
+    position: relative;
+  background: #CBB8EF;
+  border: none;
+  color: #140A22;
+  font-size: 2vw;
+  font-weight: bold;
+    font-family: 'AmazingViews', sans-serif; 
+    width: 4%;
+    text-align: center;
+    height: fit-content;
+    padding:1% 0 ;
+}
+
+
+
+.show-overflow {
+  overflow: visible;
+}
+
+@media (max-width: 650px) {
+.box
+{
+width: 90%; 
+}
+}
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<body>
+<div class="gallery">
+  <button class="arrow prev">&lt;</button>
+<div class="wrapper">
+
+  </div>
+  <button class="arrow next">&gt;</button>
+  </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+<script src="carousell.js"></script>
+
+</body>
+</html>
