@@ -7,7 +7,7 @@
 html
 {
     overflow-x: hidden;
-    overflow-y: visible
+    overflow-y: visible;
 }
 
 
@@ -417,6 +417,12 @@ cursor: pointer;
 .copyrights p:last-child
 {
     text-align: right;
+}
+
+.privacy
+{
+    text-decoration: none;
+    color: white;
 }
 
 .privacy:hover
