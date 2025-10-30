@@ -307,12 +307,11 @@ width: 90%;
   font-size: 2em;
   font-weight: bold;
     font-family: 'AmazingViews', sans-serif; 
-  padding: 0.5% 1.25%;
+    width: 5%;
   cursor: pointer;
   user-select: none;
   display: flex;
   align-items: center;
-  padding-top: 0.65%;
 
 }
 
@@ -330,7 +329,7 @@ width: 90%;
     width: 100%;
     position: relative;
     text-align: center;
-z-index: 1;
+z-index: 11;
 margin-bottom: 0;
 }
 
@@ -347,20 +346,42 @@ align-items: center;
  width: 100%;   
 overflow: clip;
 margin-top: -21%;
+  pointer-events: none;  
 }
 
-.engage_planet img
+.engage_img
 {
     height: auto;
     scale: 1.25;
     width: 100%;
+      pointer-events: none;  
 }
-.engage_action a
+
+.flare
+{
+  position: absolute;  
+  top: 0;
+  left: 50%;
+  transform: translate(-52.5%,15%);
+  width: 30%;
+  scale: 1;
+  height: auto;
+    opacity: 0;
+        transition: opacity 0.6s ease; 
+          pointer-events: none;  
+}
+.flare.active
+{
+opacity: 1;
+}
+
+
+.engage_button
 {
 position: absolute;
 text-align: center;
 left: 50%;
-transform: translateX(-55%);
+transform: translateX(-57.55%);
 top: 32.5%;
     font-family: 'AmazingViews', sans-serif;
     font-weight: 500;
@@ -369,6 +390,11 @@ top: 32.5%;
     text-align: center;
     z-index: 10;
     text-decoration: none;
+}
+
+.engage_action:hover
+{
+cursor: pointer;
 }
 
 .copyrights
@@ -393,6 +419,11 @@ top: 32.5%;
     text-align: right;
 }
 
+.privacy:hover
+{
+    color: #ffcc00;
+    transition: color 0.6s ease; 
+}
 
 
 
@@ -442,7 +473,6 @@ padding-bottom: 35px;}
 }
 .engage{
     margin-top: 125px;
-    z-index: 9;
 }
 .engage_planet
 {
@@ -452,7 +482,7 @@ padding-bottom: 35px;}
 {
     overflow: visible;
 }
-.engage_action a
+.engage_button
 {
     top: 205px;
     padding-right: 10px;
@@ -484,7 +514,7 @@ padding-bottom: 35px;}
         margin-top: 0;
       }
           .offer-item h2{    
-        font-size: 22px;
+        font-size: 6.5vw;
         }
         .background
         {
@@ -507,7 +537,7 @@ padding-bottom: 35px;}
             width: 80%;
             flex-direction: column;
             align-items: center;
-            font-size: 2.75vw;
+            font-size: 3vw;
             margin-bottom: 0px;
         }
         .offer-item {
@@ -549,12 +579,17 @@ padding-bottom: 35px;}
             margin-top: -52.5vw;
 padding-bottom: 25%;
         }
-        .engage_planet img
+        .flare
+        {
+        width: 40%;
+        transform: translate(-55%,10%);
+        }
+        .engage_img
         {
          scale: 1.75;   
          margin-top: 35vw;
         }
-        .engage_action a
+        .engage_button
         {
 
          font-size: 5vw;   

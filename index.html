@@ -10,6 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
   <!-- Basic SEO / Social -->
   <meta property="og:title" content="Bloxnauts" />
   <meta property="og:description" content="Bloxnauts — Project landing page" />
@@ -54,7 +58,7 @@
 
 <section class="info">
   <h1>ROBLOX AND FORTNITE GAMES DEVELOPMENT</h1>
-  <p>We're specialists of design and development of branded and original IP games for USG platforms like <span style="color: yellow;">Roblox</span> and <span style="color: yellow;">FCHQ</span> </p>
+  <p>We're specialists of design and development of branded and original IP games for USG platforms like <span style="color: #ffcc00;">Roblox</span> and <span style="color: #ffcc00;">FCHQ</span> </p>
   <p>Want your brand have presence and gain traction among youngest audiences? We're here to help.</p>
 </section>
 
@@ -81,9 +85,9 @@ USG games are about unbroken contact with your audience, keeping them interestin
 <section class="our_games">
 <h1>OUR GAMES AND CLIENTS</h1>
  <div class="carousel-container">
-    <button class="arrow left">&#10094;</button>
+    <button class="arrow left">&lt;</button>
     <div id="gallery" class="carousel"></div>
-    <button class="arrow right">&#10095;</button>
+    <button class="arrow right">&gt;</button>
   </div>
 
 </section>
@@ -93,12 +97,14 @@ USG games are about unbroken contact with your audience, keeping them interestin
   <p>Click to get more information about our services and get in touch with us!</p>
   <div class="engage_action">
        <div class="engage_planet">
-    <img src="img/engage.png" alt="Engage" />
+    <img src="img/engage.png" alt="Engage" class="engage_img" />
+        <img src="img/flare.png" class="flare" alt="Flare">
 </div>
+
     <a href="#" class="engage_button">ENGAGE!</a>
     <div class="copyrights">
   <p>© Copyright 2025 by Bloxnauts</p>
-  <p>Privacy Policy</p>
+  <a class="privacy" hre="https://game-factory.eu/bundles/gamefactorysite/pdf/privacyPolicy_20180605.pdf"  target="_blank">Privacy Policy</p>
   </div>
   </div>
   
@@ -108,6 +114,7 @@ USG games are about unbroken contact with your audience, keeping them interestin
 
 
 </div>
+
 <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.45/dist/lenis.min.js"></script>
 <script src="carousell.js"></script>
 <script>
@@ -117,48 +124,47 @@ USG games are about unbroken contact with your audience, keeping them interestin
   if (!layers.length) return;
   if (window.innerWidth <= 768) return;
 
-  // 1. Inicjalizacja Lenis
-  // Możesz dostosować opcje (duration, easing, etc.)
   const lenis = new Lenis({
-    duration: 1.2,          // Czas trwania animacji przewijania (im dłuższy, tym bardziej "gumowe")
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Funkcja łagodząca
-    smoothTouch: false,     // Wyłączamy płynne przewijanie na dotyku (opcjonalnie)
-    wheelMultiplier: 1.0,   // Mnożnik prędkości kółka myszy
+    duration: 1.2,         
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothTouch: false,     
+    wheelMultiplier: 1.0,   
   });
 
-  // 2. Funkcja do płynnego przewijania (Game Loop)
   function raf(time) {
-    lenis.raf(time); // Aktualizuje Lenis
+    lenis.raf(time); 
     requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf); // Rozpoczęcie pętli
+  requestAnimationFrame(raf); 
 
-  // 3. Funkcja do aktualizacji Paralaksy
   function updateParallax(scrollPosition) {
     layers.forEach(layer => {
       const speed = parseFloat(layer.dataset.speed) || 0.3;
-      
-      // Obliczenie przesunięcia na podstawie pozycji scrolla
-      // Lenis przekazuje aktualną pozycję przewinięcia (scrollPosition)
+
       const offset = scrollPosition * speed * -1; 
       
-      // Użycie akceleracji sprzętowej GPU
       layer.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
   }
 
-  // 4. Nasłuchiwanie Zdarzeń Lenis
-  // Lenis wywołuje swoją własną funkcję 'scroll' i przekazuje pozycję
-  // Do Twojego kodu paralaksy.
+
   lenis.on('scroll', ({ scroll }) => {
-    // Wywołaj funkcję paralaksy, przekazując aktualną pozycję scrolla
     updateParallax(scroll); 
   });
 
-  // Początkowe ustawienie
   updateParallax(window.scrollY);
 
 })();
+ const x = document.querySelector('.engage_button');
+  const y = document.querySelector('.flare');
+
+  x.addEventListener('mouseenter', () => {
+    y.classList.add('active');
+  });
+
+  x.addEventListener('mouseleave', () => {
+    y.classList.remove('active');
+  });
 </script>
 
 
