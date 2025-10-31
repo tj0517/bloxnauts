@@ -258,43 +258,58 @@ p
 }
 
 
-/* Kontener carousel */
-.carousel-container {
+.gallery
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center ;
+}
+
+.wrapper {
+  height: fit-content;
+  max-height: 50vh;
+  width: 84%;
   position: relative;
- width: 100%;
-  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .carousel {
-width: 90%;
-  display: flex;
-  overflow: hidden; /* ukrywa częściowo widoczne karty */
-  gap: 50px;
-  padding: 10px 0;
-}
-
-/* Karty */
-.card {
-  flex: 0 0 auto;
-  aspect-ratio:16/9 ;
-  background: #5E74C8;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  width: calc((100% - 100px)/3);;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: full;
-  object-fit: cover;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  flex-shrink: 0;
+  aspect-ratio: 16/9;
+  margin-right:  50px;
+  width: calc((100% - 100px)/3);;
+flex: 0 0 auto;
+  aspect-ratio:16/9 ;
+  overflow: hidden;
+}
+.spacer {
+  width: 0;
+  background: transparent;
+  pointer-events: none;
+}
+.box img
+{
+width: 100%;
+height: 100%;
+}
+
+.show-overflow {
+  overflow: visible;
 }
 
 
@@ -307,7 +322,8 @@ width: 90%;
   font-size: 4vw;
   font-weight: bold;
     font-family: 'AmazingViews', sans-serif; 
-    padding: 0.5% 2%;
+    line-height: 0.75;
+    padding: 0.25% 1%;
     text-align: center;
 }
 
@@ -456,6 +472,7 @@ body {
   .arrow
   {
     font-size: 50px;
+
 }
 .offer-item
 {
@@ -482,9 +499,8 @@ padding-bottom: 35px;}
 }
 .engage_button
 {
-    top: 250px;
-    padding-right: 10px;
-    font-size: 52px;
+    top: 210px;
+    font-size: 48px;
 }
 }
 @media (max-width: 950px) {
@@ -556,12 +572,22 @@ padding-bottom: 35px;}
     width: 40%;
     font-size: 5vw;
 }
-.carousel
+.wrapper
 {
-    gap: 25px;
+    width: 80%;
+}
+.box
+{
+width: calc((100% - 50px)/2); 
+}
+.spacer
+{
+    width: 0;
 }
         .arrow {
             font-size: 5vw;  
+            line-height: 1;
+            padding: 0.25% 2%;
         }
 
         .engage p{
@@ -596,8 +622,6 @@ padding-bottom: 25%;
             font-size: 2vw;
             top:90%;
         }
-
-        .card { width: calc((100% - 25px)/2); }
     }
      
 @media (max-width: 650px) {
@@ -605,6 +629,13 @@ padding-bottom: 25%;
     {
     width: 80%;
     }
-    .card { width: 100%; }
+.box
+{
+width: 100%; 
+}
+.spacer
+{
+    width: 0;
+}
 
 }   

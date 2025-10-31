@@ -10,19 +10,28 @@ async function loadImages(jsonUrl) {
       const box = document.createElement("div");
       box.classList.add("box");
 
+      const link =document.createElement("a")
+      link.target="_blank"
+      link.href=item.link
+      
       const img = document.createElement("img");
       img.src = item.image; // np. "img/games/game1.png"
 
-      box.appendChild(img);
+      box.appendChild(link);
+      link.appendChild(img)
       wrapper.appendChild(box);
     });
-
+    const spacer = document.createElement("div");
+spacer.classList.add("box", "spacer");
+wrapper.appendChild(spacer);
     // dopiero teraz inicjalizujemy karuzelę GSAP
     initCarousel();
   } catch (err) {
     console.error("Błąd ładowania JSON:", err);
   }
 }
+
+
 
 // Funkcja inicjalizująca horizontalLoop
 function initCarousel() {
@@ -40,11 +49,6 @@ function initCarousel() {
     }
   });
 
-  boxes.forEach((box, i) =>
-    box.addEventListener("click", () =>
-      loop.toIndex(i, { duration: 0.8, ease: "power1.inOut" })
-    )
-  );
 
   document.querySelector(".next").addEventListener("click", () =>
     loop.previous({ duration: 0.4, ease: "power1.inOut" })
@@ -53,6 +57,8 @@ function initCarousel() {
     loop.next({ duration: 0.4, ease: "power1.inOut" })
   );
 }
+
+
 
 // Wywołanie wczytania JSON
 loadImages("game.json");
