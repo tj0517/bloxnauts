@@ -35,6 +35,22 @@ async function loadImages(jsonUrl) {
 function initCarousel() {
 const boxes = gsap.utils.toArray(".box");
   let activeElement;
+  let autoPlayTimer;
+
+
+
+    function startAutoPlay() {
+    autoPlayTimer = setInterval(() => {
+      if (loop) {
+        loop.previous({ duration: 0.4, ease: "power1.inOut" });
+      }
+    }, 3000); // 3 sekundy
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    startAutoPlay();
+  }
 
 const loop = horizontalLoop(boxes, {
     paused: true,
@@ -51,14 +67,22 @@ const loop = horizontalLoop(boxes, {
     }
   });
 
+  startAutoPlay();
+  // Event listenery dla przycisków z zabezpieczeniem
+  document.querySelector(".next").addEventListener("click", () => {
+    if (loop) loop.previous({ duration: 0.4, ease: "power1.inOut" });
+    resetAutoPlay(); // Reset przy interakcji
+  });
 
-  document.querySelector(".next").addEventListener("click", () =>
-    loop.previous({ duration: 0.4, ease: "power1.inOut" })
-  );
-  document.querySelector(".prev").addEventListener("click", () =>
-    loop.next({ duration: 0.4, ease: "power1.inOut" })
-  );
+  document.querySelector(".prev").addEventListener("click", () => {
+    if (loop) loop.next({ duration: 0.4, ease: "power1.inOut" });
+    resetAutoPlay(); // Reset przy interakcji
+  });
+
+
 }
+
+
 
 
 
@@ -66,14 +90,6 @@ const loop = horizontalLoop(boxes, {
 loadImages("game.json");
 
 let activeElement;
-
-boxes.forEach((box, i) => box.addEventListener("click", () => loop.toIndex(i, {duration: 0.8, ease: "power1.inOut"})));
-
-document.querySelector(".toggle").addEventListener("click", () => wrapper.classList.toggle("show-overflow"));
-document.querySelector(".next").addEventListener("click", () => loop.next({duration: 0.4, ease: "power1.inOut"}));
-document.querySelector(".prev").addEventListener("click", () => loop.previous({duration: 0.4, ease: "power1.inOut"}));
-
-
 
 
 /*
