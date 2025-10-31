@@ -21,9 +21,6 @@ async function loadImages(jsonUrl) {
       link.appendChild(img)
       wrapper.appendChild(box);
     });
-    const spacer = document.createElement("div");
-spacer.classList.add("box", "spacer");
-wrapper.appendChild(spacer);
 
     // dopiero teraz inicjalizujemy karuzelę GSAP
     initCarousel();
@@ -39,16 +36,15 @@ function initCarousel() {
 const boxes = gsap.utils.toArray(".box");
   let activeElement;
 
-  const loop = horizontalLoop(boxes, {
+const loop = horizontalLoop(boxes, {
     paused: true,
-    draggable: true,
-    center: true,
+    draggable: false,
+    center: false,
+    paddingRight: 50, // Dodaj padding po prawej stronie
     onChange: (element, index) => {
-
       if (element.classList.contains("spacer")) {
-        return; // Nie zmieniaj aktywnego elementu jeśli to spacer
+        return;
       }
-
       activeElement && activeElement.classList.remove("active");
       element.classList.add("active");
       activeElement = element;
@@ -70,16 +66,6 @@ const boxes = gsap.utils.toArray(".box");
 loadImages("game.json");
 
 let activeElement;
-const loop = horizontalLoop(boxes, {
-  paused: true, 
-  draggable: true, // make it draggable
-  center: true, // active element is the one in the center of the container rather than th left edge
-  onChange: (element, index) => { // when the active element changes, this function gets called.
-    activeElement && activeElement.classList.remove("active");
-    element.classList.add("active");
-    activeElement = element;
-  }
-});
 
 boxes.forEach((box, i) => box.addEventListener("click", () => loop.toIndex(i, {duration: 0.8, ease: "power1.inOut"})));
 

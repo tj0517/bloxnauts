@@ -123,7 +123,7 @@ USG games are about unbroken contact with your audience, keeping them interestin
 (function() {
   const layers = document.querySelectorAll('[data-parallax]');
   if (!layers.length) return;
-  if (window.innerWidth <= 768) return;
+if (('ontouchstart' in window || navigator.maxTouchPoints > 0)) return;
 
   const lenis = new Lenis({
     duration: 1.2,         
