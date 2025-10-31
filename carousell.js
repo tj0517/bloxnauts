@@ -42,7 +42,7 @@ const boxes = gsap.utils.toArray(".box");
     function startAutoPlay() {
     autoPlayTimer = setInterval(() => {
       if (loop) {
-        loop.previous({ duration: 0.4, ease: "power1.inOut" });
+        loop.nex({ duration: 0.4, ease: "power1.inOut" });
       }
     }, 3000); // 3 sekundy
   }
