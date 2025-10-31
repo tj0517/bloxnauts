@@ -156,16 +156,19 @@ USG games are about unbroken contact with your audience, keeping them interestin
   updateParallax(window.scrollY);
 
 })();
- const x = document.querySelector('.engage_button');
+  const x = document.querySelector('.engage_button');
   const y = document.querySelector('.flare');
 
-  x.addEventListener('mouseenter', () => {
-    y.classList.add('active');
-  });
+  // ✅ tylko jeśli NIE jest to urządzenie dotykowe
+  if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+    x.addEventListener('mouseenter', () => {
+      y.classList.add('active');
+    });
 
-  x.addEventListener('mouseleave', () => {
-    y.classList.remove('active');
-  });
+    x.addEventListener('mouseleave', () => {
+      y.classList.remove('active');
+    });
+  }
 </script>
 
 
