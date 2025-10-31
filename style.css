@@ -357,7 +357,7 @@ align-items: center;
 .engage_planet
 {
  width: 100%;   
-overflow: clip;
+overflow-x: clip;
 margin-top: -21%;
   pointer-events: none;  
 }
