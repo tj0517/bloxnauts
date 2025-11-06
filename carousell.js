@@ -6,28 +6,35 @@ async function loadImages(jsonUrl) {
     const response = await fetch(jsonUrl);
     const data = await response.json();
 
+    const wrapper = document.querySelector(".wrapper");
+
     data.forEach(item => {
       const box = document.createElement("div");
       box.classList.add("box");
 
-      const link =document.createElement("a")
-      link.target="_blank"
-      link.href=item.link
-      
-      const img = document.createElement("img");
-      img.src = item.image; // np. "img/games/game1.png"
+      const link = document.createElement("a");
+      link.target = "_blank";
+      link.href = item.link;
 
+      const img = document.createElement("img");
+      img.src = item.image;
+
+      const title = document.createElement("p");
+      title.classList.add("title");
+      title.textContent = item.title || "Bez tytułu";
+
+      link.appendChild(img);
       box.appendChild(link);
-      link.appendChild(img)
+      box.appendChild(title);
       wrapper.appendChild(box);
     });
 
-    // dopiero teraz inicjalizujemy karuzelę GSAP
-    initCarousel();
+    initCarousel(); // inicjalizacja karuzeli po załadowaniu obrazków
   } catch (err) {
     console.error("Błąd ładowania JSON:", err);
   }
 }
+
 
 
 

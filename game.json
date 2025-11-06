@@ -1,21 +1,24 @@
 [
 {
 "image":"img/games/game1.png",
-"link":"#"
+"link":"#",
+  "title": "Legends Tycoon"
   },
 
 {
-"image":"img/games/z.png",
-"link":"#"
+"image":"img/games/game1.png",
+"link":"#",
+    "title": "Legends Tycoon"
   },
 
 {
-"image":"img/games/z.png",
-"link":"#"
+"image":"img/games/game1.png",
+"link":"#",
+    "title": "Legends Tycoon"
   },
   {
-"image":"img/games/z.png",
-"link":"#"
+"image":"img/games/game1.png",
+"link":"#",
+    "title": "Legends Tycoon"
   }
-
 ]

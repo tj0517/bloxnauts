@@ -282,6 +282,20 @@ p {
   height: auto;
   object-fit: cover;
   display: block;
+   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              filter 0.4s ease;
+  filter: brightness(0.9);
+}
+.box img:hover {
+    transform: scale(1.07);
+  transform: translateY(-2%);
+  filter: brightness(1.15);
+}
+
+.title {
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
 }
 
 .box.placeholder {
@@ -306,6 +320,7 @@ p {
   line-height: 0.75;
   padding: 0.25% 1%;
   text-align: center;
+  transform: translateY(-50%);
 }
 
 .arrow.left {
@@ -372,9 +387,9 @@ p {
 .engage_button {
   position: absolute;
   text-align: center;
-  left: 50%;
+  left: 50.5%;
   transform: translateX(-57.55%);
-  top: 32.5%;
+  top: 18%;
   font-family: 'AmazingViews', sans-serif;
   font-weight: 500;
   font-size: 3.5vw;
@@ -382,6 +397,10 @@ p {
   text-align: center;
   z-index: 10;
   text-decoration: none;
+  width: 20%;
+padding-top: 8%;
+padding-bottom: 8%;
+border-radius: 100%;
 }
 
 .engage_action:hover {
@@ -478,7 +497,7 @@ p {
   }
   
   .engage_button {
-    top: 210px;
+    top: 110px;
     font-size: 48px;
   }
 }
@@ -573,6 +592,7 @@ p {
     font-size: 5vw;
     line-height: 1;
     padding: 0.25% 2%;
+    transform: translateY(-75%);
   }
   
   .engage p {
@@ -599,7 +619,10 @@ p {
   
   .engage_button {
     font-size: 5vw;
-    top: 26%;
+    top: 12.5%;
+    width: 27.5%;
+    padding-top: 11%;
+    padding-bottom: 11%;
   }
   
   .copyrights {
